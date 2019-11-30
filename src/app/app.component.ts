@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Pokemon, PokedexService } from './pokedex.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'pokedex-pragma';
+  pokeList: Pokemon[]= [];
+  constructor(private pokemons: PokedexService){
+      this.pokeList = this.pokemons.getPokemons();
+  }
+
+  
 }
